@@ -1,0 +1,22 @@
+services:
+  ap:
+    build: ./src/ruby
+    image: ruby:1.0
+    container_name: ruby
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./src/ruby/script:/home/ruby
+    networks:
+      - my_network
+  db:
+    build: ./src/postgres
+    image: postgres:1.0
+    container_name: postgres
+    volumes:
+      - ./src/postgres/data:/var/lib/postgresql/data
+      - ./src/postgres/sql:/home/postgres
+    networks:
+      - my_network
+networks:
+  my_network:
