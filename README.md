@@ -1,6 +1,6 @@
 # PostgreSQLをRubyで動かす
 
-SQL ゼロからはじめるデータベース操作の[9章 アプリケーションからデータベースへ接続する](https://www.notion.so/9-1ba4f0234d2280f3b012fb4f0320c114?pvs=21)をベースに、JavaではなくRubyで動かした場合を検証する
+[SQL ゼロからはじめるデータベース操作](https://amzn.asia/d/8eiA7vy)の[9章 アプリケーションからデータベースへ接続する](https://www.notion.so/9-1ba4f0234d2280f3b012fb4f0320c114?pvs=21)をベースに、JavaではなくRubyで動かした場合を検証する
 
 # 9章でやったこと
 
