@@ -6,7 +6,7 @@ docker compose build
 
 - rubyファイルを実行する
 ```
-docker compose up -d
+docker compose up
 docker exec -it ruby /bin/bash
 bundle exec ruby /home/ruby/実行したいファイル名.rb
 ```
@@ -15,29 +15,39 @@ bundle exec ruby /home/ruby/実行したいファイル名.rb
 bundle exec ruby /home/ruby/test_postgresql.rb
 ```
 
-# PostgreSQLをRubyで動かす
+- psqlを使ってコマンドラインでSQL打ちたい時
+```
+docker exec -it postgres /bin/bash
+psql -U root -d test
+```
 
-[SQL ゼロからはじめるデータベース操作](https://amzn.asia/d/8eiA7vy)の[9章 アプリケーションからデータベースへ接続する](https://www.notion.so/9-1ba4f0234d2280f3b012fb4f0320c114?pvs=21)をベースに、JavaではなくRubyで動かした場合を検証する
+# 概要
+Docker環境でPostgreSQLをRubyで動かす
 
-# 9章でやったこと
+[SQL ゼロからはじめるデータベース操作](https://amzn.asia/d/8eiA7vy)の[9章 アプリケーションからデータベースへ接続する](https://www.notion.so/9-1ba4f0234d2280f3b012fb4f0320c114?pvs=21)をベースに、JavaではなくRubyで動かした場合を検証した結果をリポジトリに入れた
 
-- PostgreSQLはローカル環境でダウンロード済み
-    - バージョンは**14.13** (Homebrew)
-    - Javaを触る前にデータベースは構築済み
-- Javaをローカル環境でダウンロード
-- JDBCドライバPostgreSQL JDBC DriverをダウンロードしてJavaとPostgreSQLを接続できるようにした
-- Javaで書いた内容をコンパイルして`java` でクエリ実行させていた
-- SELECT, DELETE, INSERT, UPDATEをJavaファイルでする方法を学んだ
+# このリポジトリでできること
 
-# こっからやること
-
-- DockerでRuby環境を構築する
-    - ローカルにRuby入れるのだるい
+- DockerでRuby用コンテナ、PostgreSQL用コンテナを構築する
+    - ローカルにRuby入れるのがだるかったから
 - RubyでPostgreSQLにアクセスさせる
-    - pgというgemがあるらしい
-- .rbファイルで9章+αの作業を行う
+    - pgというgemを利用
+- .rbファイルで以下のことが実行できる
     - テーブルの作成
     - INSERT
     - SELECT
     - UPDATE
     - DELETE
+
+# 作成したテーブル
+```
+        List of relations
+ Schema |  Name  | Type  | Owner
+--------+--------+-------+-------
+ public | curry  | table | root
+ public | shohin | table | root
+ public | test1  | table | root
+(3 rows)
+```
+- ShohinテーブルはSQL ゼロからはじめるデータベース操作のサンプルコードを参考にしている
+- Curryテーブルは自作
