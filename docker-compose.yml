@@ -14,7 +14,7 @@ services:
     image: postgres:1.0
     container_name: postgres
     volumes:
-      - ./src/postgres/data:/var/lib/postgresql/data
+      - ./src/postgres/data:/var/lib/postgresql/data # 右コンテナ消しても左のホスト側で残っている
       - ./src/postgres/sql:/home/postgres
     networks:
       - my_network
