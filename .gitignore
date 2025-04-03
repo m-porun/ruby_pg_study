@@ -9,6 +9,8 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+# データベースの動作に関する統計やデータベースのパフォーマンスをモニタリングする一時的なファイル
+src/postgres/data/pg_stat_tmp
 
 # Used by dotenv library to load environment variables.
 # .env
